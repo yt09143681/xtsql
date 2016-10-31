@@ -3,6 +3,7 @@
 on P.PrivilegeAccessKey=M.MenuID,cf_user U 
 where ( (P.PrivilegeMasterKey=U.UserID and U.LoginName='test1' and P.PrivilegeMaster='CF_User' ) or (P.PrivilegeMaster='CF_Role' and P.PrivilegeMasterKey = (select U_R.RoleID from cf_role R,cf_user U,cf_userrole U_R where U.UserID=U_R.UserID and R.RoleID=U_R.RoleID and U.LoginName='test1') ) ) and P.PrivilegeAccess='Sys_Menu' and PrivilegeOperation='Permit';
 查询结果：
+![h](https://github.com/yt09143681/xtsql/blob/master/1.jpg)
 
 
 
@@ -11,3 +12,4 @@ where ( (P.PrivilegeMasterKey=U.UserID and U.LoginName='test1' and P.PrivilegeMa
 on P.PrivilegeAccessKey=B.BtnID,cf_user U,sys_menu M 
 where ( (P.PrivilegeMasterKey=U.UserID and U.LoginName='test1' and P.PrivilegeMaster='CF_User' ) or (P.PrivilegeMaster='CF_Role' and P.PrivilegeMasterKey = (select U_R.RoleID from cf_role R,cf_user U,cf_userrole U_R where U.UserID=U_R.UserID and R.RoleID=U_R.RoleID and U.LoginName='test1') ) ) and P.PrivilegeAccess='Sys_Button' and PrivilegeOperation='Permit' AND M.MenuName='订单' and B.MenuNo=M.MenuNo;
 查询结果：
+![h](https://github.com/yt09143681/xtsql/blob/master/2.jpg)
